@@ -1,2 +1,1017 @@
-# 祥鹏航空
+祥鹏航空
 企业网站demo
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祥鹏航空 - 航空岗位招聘</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        // Tailwind配置
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a3d62',      // 深蓝色 - 专业、信任
+                        secondary: '#f97316',    // 橙色 - 活力、醒目
+                        accent: '#1e3a8a',       // 藏青色 - 稳重
+                        light: '#f8fafc',        // 浅灰背景
+                        dark: '#1e293b',         // 深色文字
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-transform-opacity {
+                transition-property: transform, opacity;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-dark">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="text-white text-2xl font-bold">
+                    <i class="fa fa-plane mr-2"></i>祥鹏航空
+                </div>
+            </div>
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-white hover:text-secondary transition-colors">首页</a>
+                <a href="#positions" class="text-white hover:text-secondary transition-colors">岗位分类</a>
+                <a href="#requirements" class="text-white hover:text-secondary transition-colors">任职要求</a>
+                <a href="#apply" class="text-white hover:text-secondary transition-colors">申请流程</a>
+                <a href="#contact" class="text-white hover:text-secondary transition-colors">联系方式</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-white text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#home" class="py-2 hover:text-secondary transition-colors">首页</a>
+                <a href="#positions" class="py-2 hover:text-secondary transition-colors">岗位分类</a>
+                <a href="#requirements" class="py-2 hover:text-secondary transition-colors">任职要求</a>
+                <a href="#apply" class="py-2 hover:text-secondary transition-colors">申请流程</a>
+                <a href="#contact" class="py-2 hover:text-secondary transition-colors">联系方式</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://picsum.photos/id/1059/1920/1080');">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-bold text-white mb-6 leading-tight text-shadow">
+                加入祥鹏航空<br>开启你的飞行梦想
+            </h1>
+            <p class="text-[clamp(1rem,3vw,1.5rem)] text-white/90 max-w-3xl mx-auto mb-10">
+                我们提供具有竞争力的薪酬福利和职业发展平台，寻找热爱航空事业的你
+            </p>
+            <a href="#positions" class="inline-block bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                浏览岗位 <i class="fa fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+        
+        <!-- 下滚指示器 -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white text-3xl">
+                <i class="fa fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-primary mb-4">关于祥鹏航空</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">祥鹏航空是一家以创新服务和安全飞行为核心的现代化航空公司，致力于为旅客提供高品质的航空出行体验。我们拥有一支专业、高效、富有激情的团队，现面向社会公开招聘各类航空专业人才。</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-light p-8 rounded-lg shadow-md card-hover">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">安全第一</h3>
+                    <p class="text-gray-600">我们始终将飞行安全放在首位，建立了完善的安全管理体系和培训机制，确保每一次飞行都安全可靠。</p>
+                </div>
+                
+                <div class="bg-light p-8 rounded-lg shadow-md card-hover">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">人才发展</h3>
+                    <p class="text-gray-600">我们重视人才培养，提供系统化的培训课程和广阔的职业发展空间，助力员工实现个人职业目标。</p>
+                </div>
+                
+                <div class="bg-light p-8 rounded-lg shadow-md card-hover">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">优质服务</h3>
+                    <p class="text-gray-600">以客为尊是我们的服务理念，我们致力于通过专业的服务团队和创新的服务产品，为旅客创造愉悦的出行体验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 岗位分类 -->
+    <section id="positions" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-primary mb-4">航空岗位分类</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">我们提供多样化的职业发展机会，无论你是飞行、维修、空乘还是地勤等专业人才，都能在这里找到适合自己的发展平台。</p>
+            </div>
+            
+            <!-- 岗位分类选项卡 -->
+            <div class="mb-10">
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button class="position-tab active px-6 py-3 rounded-full bg-primary text-white font-medium transition-all" data-target="flight-ops">飞行运营</button>
+                    <button class="position-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition-all" data-target="cabin-crew">客舱服务</button>
+                    <button class="position-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition-all" data-target="engineering">机务维修</button>
+                    <button class="position-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition-all" data-target="ground-services">地勤服务</button>
+                </div>
+                
+                <!-- 飞行运营岗位 -->
+                <div id="flight-ops" class="position-content active">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- 机长岗位 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="h-48 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/1025/600/400');"></div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-primary">机长</h3>
+                                    <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">高薪</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">负责航班的安全运行，执行飞行任务，确保旅客和机组人员的安全。</p>
+                                <div class="mb-4">
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>持有ATPL执照及相应机型等级</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>5000小时以上飞行经验</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>良好的英语听说读写能力</span>
+                                    </div>
+                                </div>
+                                <a href="#apply" class="inline-block text-secondary font-medium hover:underline">
+                                    查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- 副驾驶岗位 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="h-48 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/1067/600/400');"></div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-primary">副驾驶</h3>
+                                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">热门</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">协助机长完成飞行任务，负责飞行前准备、飞行中操作和系统监控。</p>
+                                <div class="mb-4">
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>持有CPL/ATPL执照</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>500小时以上飞行经验</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>ICAO英语4级及以上</span>
+                                    </div>
+                                </div>
+                                <a href="#apply" class="inline-block text-secondary font-medium hover:underline">
+                                    查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- 飞行教员岗位 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="h-48 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/1071/600/400');"></div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-primary">飞行教员</h3>
+                                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">稳定</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">负责飞行员的训练和考核工作，培养高素质的飞行人才。</p>
+                                <div class="mb-4">
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>持有飞行教员执照</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>3000小时以上飞行经验</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>具备良好的教学能力</span>
+                                    </div>
+                                </div>
+                                <a href="#apply" class="inline-block text-secondary font-medium hover:underline">
+                                    查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 客舱服务岗位 (默认隐藏) -->
+                <div id="cabin-crew" class="position-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- 乘务长岗位 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="h-48 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/1062/600/400');"></div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-primary">乘务长</h3>
+                                    <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">管理</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">负责客舱服务团队的管理，确保客舱服务质量和旅客安全。</p>
+                                <div class="mb-4">
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>5年以上空乘工作经验</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>持有乘务长资格证书</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>优秀的沟通协调能力</span>
+                                    </div>
+                                </div>
+                                <a href="#apply" class="inline-block text-secondary font-medium hover:underline">
+                                    查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- 空乘岗位 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="h-48 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/1074/600/400');"></div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-primary">空乘人员</h3>
+                                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">热门</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">负责客舱安全和服务工作，为旅客提供舒适的飞行体验。</p>
+                                <div class="mb-4">
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>年龄18-28周岁</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>身高女163-175cm，男175-185cm</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>良好的形象气质和沟通能力</span>
+                                    </div>
+                                </div>
+                                <a href="#apply" class="inline-block text-secondary font-medium hover:underline">
+                                    查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- 安全员岗位 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="h-48 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/1070/600/400');"></div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-primary">航空安全员</h3>
+                                    <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium">安保</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">负责航空器及旅客的安全保卫工作，处置突发事件。</p>
+                                <div class="mb-4">
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>持有航空安全员执照</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>具备格斗、急救等专业技能</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>无犯罪记录，政治审查合格</span>
+                                    </div>
+                                </div>
+                                <a href="#apply" class="inline-block text-secondary font-medium hover:underline">
+                                    查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 机务维修岗位 (默认隐藏) -->
+                <div id="engineering" class="position-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- 飞机维修工程师 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="h-48 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/1068/600/400');"></div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-primary">维修工程师</h3>
+                                    <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">技术</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">负责飞机的维护、修理和改装工作，确保飞机适航状态。</p>
+                                <div class="mb-4">
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>持有CCAR-66部维修人员执照</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>航空维修相关专业本科以上学历</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>3年以上飞机维修工作经验</span>
+                                    </div>
+                                </div>
+                                <a href="#apply" class="inline-block text-secondary font-medium hover:underline">
+                                    查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- 机械员岗位 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="h-48 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/1069/600/400');"></div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-primary">机械员</h3>
+                                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">稳定</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">执行飞机的例行检查和维护工作，协助工程师完成维修任务。</p>
+                                <div class="mb-4">
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>航空维修相关专业学历</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>具备基本的机械知识和技能</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>能够适应倒班工作</span>
+                                    </div>
+                                </div>
+                                <a href="#apply" class="inline-block text-secondary font-medium hover:underline">
+                                    查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 地勤服务岗位 (默认隐藏) -->
+                <div id="ground-services" class="position-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- 值机员岗位 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="h-48 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/1058/600/400');"></div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-primary">值机员</h3>
+                                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">入门</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">负责旅客值机、行李托运、登机牌办理等柜台服务工作。</p>
+                                <div class="mb-4">
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>大专以上学历，18-30周岁</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>良好的沟通能力和服务意识</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>基本英语听说能力</span>
+                                    </div>
+                                </div>
+                                <a href="#apply" class="inline-block text-secondary font-medium hover:underline">
+                                    查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- 货运员岗位 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="h-48 bg-cover bg-center" style="background-image: url('https://picsum.photos/id/1061/600/400');"></div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h3 class="text-xl font-bold text-primary">货运员</h3>
+                                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">稳定</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">负责航空货物的收运、仓储、装载和卸载等操作工作。</p>
+                                <div class="mb-4">
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>物流管理或相关专业优先</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>熟悉货物操作流程和规定</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <i class="fa fa-check-circle text-secondary mr-2"></i>
+                                        <span>能够适应倒班工作</span>
+                                    </div>
+                                </div>
+                                <a href="#apply" class="inline-block text-secondary font-medium hover:underline">
+                                    查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 任职要求 -->
+    <section id="requirements" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-primary mb-4">任职要求</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">无论您申请哪个岗位，我们都期望您具备以下基本素质和能力，共同为航空事业发展贡献力量。</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-primary mb-4 flex items-center">
+                            <span class="bg-secondary text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">1</span>
+                            基本条件
+                        </h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fa fa-angle-right text-secondary mt-1 mr-2"></i>
+                                <span>遵守国家法律法规，品行端正，无不良记录</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-angle-right text-secondary mt-1 mr-2"></i>
+                                <span>身体健康，符合民航局相关岗位体检标准</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-angle-right text-secondary mt-1 mr-2"></i>
+                                <span>具备良好的职业道德和敬业精神</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-angle-right text-secondary mt-1 mr-2"></i>
+                                <span>能够适应航空业特殊的工作时间和环境</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-primary mb-4 flex items-center">
+                            <span class="bg-secondary text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">2</span>
+                            能力要求
+                        </h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fa fa-angle-right text-secondary mt-1 mr-2"></i>
+                                <span>具备良好的沟通协调能力和团队合作精神</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-angle-right text-secondary mt-1 mr-2"></i>
+                                <span>较强的学习能力和适应能力</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-angle-right text-secondary mt-1 mr-2"></i>
+                                <span>具备良好的问题解决能力和应急处置能力</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-angle-right text-secondary mt-1 mr-2"></i>
+                                <span>熟练掌握计算机基本操作技能</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-light p-8 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-primary mb-6">语言要求</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-medium">英语能力</span>
+                                    <span class="text-gray-500 text-sm">所有岗位</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-secondary h-2.5 rounded-full" style="width: 75%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                    <span>基础</span>
+                                    <span>熟练</span>
+                                    <span>精通</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-medium">专业术语</span>
+                                    <span class="text-gray-500 text-sm">技术岗位</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-secondary h-2.5 rounded-full" style="width: 85%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                    <span>了解</span>
+                                    <span>掌握</span>
+                                    <span>精通</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-medium">沟通表达</span>
+                                    <span class="text-gray-500 text-sm">服务岗位</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-secondary h-2.5 rounded-full" style="width: 90%"></div>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                    <span>一般</span>
+                                    <span>良好</span>
+                                    <span>优秀</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-primary mb-3">证书要求</h4>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="flex items-center bg-white p-3 rounded shadow-sm">
+                                    <i class="fa fa-certificate text-secondary text-xl mr-3"></i>
+                                    <span>专业资格证书</span>
+                                </div>
+                                <div class="flex items-center bg-white p-3 rounded shadow-sm">
+                                    <i class="fa fa-id-card text-secondary text-xl mr-3"></i>
+                                    <span>体检合格证</span>
+                                </div>
+                                <div class="flex items-center bg-white p-3 rounded shadow-sm">
+                                    <i class="fa fa-language text-secondary text-xl mr-3"></i>
+                                    <span>英语等级证书</span>
+                                </div>
+                                <div class="flex items-center bg-white p-3 rounded shadow-sm">
+                                    <i class="fa fa-shield text-secondary text-xl mr-3"></i>
+                                    <span>安全培训证书</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 申请流程 -->
+    <section id="apply" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-primary mb-4">申请流程</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">我们致力于为您提供公平、公正、透明的招聘流程，以下是申请祥鹏航空岗位的详细步骤。</p>
+            </div>
+            
+            <div class="relative">
+                <!-- 流程线 -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gray-200 transform -translate-x-1/2"></div>
+                
+                <!-- 步骤1 -->
+                <div class="flex flex-col md:flex-row items-center mb-16 relative">
+                    <div class="md:w-1/2 md:pr-16 md:text-right mb-8 md:mb-0 order-2 md:order-1">
+                        <h3 class="text-xl font-bold text-primary mb-3">在线申请</h3>
+                        <p class="text-gray-600">访问我们的招聘网站，选择您感兴趣的岗位，填写个人信息并上传简历和相关证书。请确保您的信息真实准确，这将有助于我们更好地了解您的背景。</p>
+                    </div>
+                    
+                    <div class="z-10 w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xl order-1 md:order-2 mb-4 md:mb-0">1</div>
+                    
+                    <div class="md:w-1/2 md:pl-16 hidden md:block order-3"></div>
+                </div>
+                
+                <!-- 步骤2 -->
+                <div class="flex flex-col md:flex-row items-center mb-16 relative">
+                    <div class="md:w-1/2 md:pr-16 hidden md:block order-1"></div>
+                    
+                    <div class="z-10 w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xl order-2 mb-4 md:mb-0">2</div>
+                    
+                    <div class="md:w-1/2 md:pl-16 order-3">
+                        <h3 class="text-xl font-bold text-primary mb-3">简历筛选</h3>
+                        <p class="text-gray-600">我们的招聘团队将根据岗位要求对您的简历进行初步筛选，评估您的专业背景、工作经验和技能是否符合岗位需求。筛选通过后，我们将通过电话或邮件与您联系。</p>
+                    </div>
+                </div>
+                
+                <!-- 步骤3 -->
+                <div class="flex flex-col md:flex-row items-center mb-16 relative">
+                    <div class="md:w-1/2 md:pr-16 md:text-right mb-8 md:mb-0 order-2 md:order-1">
+                        <h3 class="text-xl font-bold text-primary mb-3">面试考核</h3>
+                        <p class="text-gray-600">面试通常包括初试和复试，根据岗位不同可能包含专业知识测试、情景模拟、小组讨论等环节。我们注重考察您的专业能力、综合素质和岗位匹配度。</p>
+                    </div>
+                    
+                    <div class="z-10 w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xl order-1 md:order-2 mb-4 md:mb-0">3</div>
+                    
+                    <div class="md:w-1/2 md:pl-16 hidden md:block order-3"></div>
+                </div>
+                
+                <!-- 步骤4 -->
+                <div class="flex flex-col md:flex-row items-center mb-16 relative">
+                    <div class="md:w-1/2 md:pr-16 hidden md:block order-1"></div>
+                    
+                    <div class="z-10 w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xl order-2 mb-4 md:mb-0">4</div>
+                    
+                    <div class="md:w-1/2 md:pl-16 order-3">
+                        <h3 class="text-xl font-bold text-primary mb-3">体检与背景调查</h3>
+                        <p class="text-gray-600">通过面试的候选人需要进行民航局规定的体检，确保身体条件符合岗位要求。同时，我们将对您的工作经历、教育背景和职业资格进行背景调查。</p>
+                    </div>
+                </div>
+                
+                <!-- 步骤5 -->
+                <div class="flex flex-col md:flex-row items-center relative">
+                    <div class="md:w-1/2 md:pr-16 md:text-right mb-8 md:mb-0 order-2 md:order-1">
+                        <h3 class="text-xl font-bold text-primary mb-3">录用与培训</h3>
+                        <p class="text-gray-600">通过所有考核后，我们将向您发出录用通知书。新员工需要参加公司统一组织的入职培训，内容包括企业文化、规章制度、岗位技能等方面的培训。</p>
+                    </div>
+                    
+                    <div class="z-10 w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xl order-1 md:order-2 mb-4 md:mb-0">5</div>
+                    
+                    <div class="md:w-1/2 md:pl-16 hidden md:block order-3"></div>
+                </div>
+            </div>
+            
+            <!-- 申请表单 -->
+            <div class="bg-white p-8 rounded-lg shadow-md max-w-3xl mx-auto mt-12">
+                <h3 class="text-xl font-bold text-primary mb-6 text-center">立即申请</h3>
+                <form id="applicationForm" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent" placeholder="请输入您的姓名" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">电话</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent" placeholder="请输入您的联系电话" required>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent" placeholder="请输入您的邮箱地址" required>
+                    </div>
+                    
+                    <div>
+                        <label for="position" class="block text-sm font-medium text-gray-700 mb-1">申请岗位</label>
+                        <select id="position" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent" required>
+                            <option value="">请选择岗位</option>
+                            <option value="captain">机长</option>
+                            <option value="first-officer">副驾驶</option>
+                            <option value="flight-instructor">飞行教员</option>
+                            <option value="cabin-chief">乘务长</option>
+                            <option value="flight-attendant">空乘人员</option>
+                            <option value="safety-officer">航空安全员</option>
+                            <option value="maintenance-engineer">维修工程师</option>
+                            <option value="mechanic">机械员</option>
+                            <option value="check-in-agent">值机员</option>
+                            <option value="cargo-agent">货运员</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="resume" class="block text-sm font-medium text-gray-700 mb-1">上传简历</label>
+                        <input type="file" id="resume" accept=".pdf,.doc,.docx" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent" required>
+                        <p class="text-xs text-gray-500 mt-1">支持PDF、Word格式，文件大小不超过5MB</p>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">自我介绍</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent" placeholder="请简要介绍您的专业背景和工作经验"></textarea>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="privacy" name="privacy" type="checkbox" class="h-4 w-4 text-secondary focus:ring-secondary border-gray-300 rounded" required>
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="privacy" class="text-gray-600">我同意祥鹏航空根据<a href="#" class="text-secondary hover:underline">隐私政策</a>处理我的个人信息</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-4 rounded-md transition-colors">
+                        提交申请 <i class="fa fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">联系我们</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-white/80 max-w-3xl mx-auto">如果您对招聘信息有任何疑问，欢迎通过以下方式与我们联系，我们的招聘团队将竭诚为您解答。</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm card-hover">
+                    <div class="text-secondary text-4xl mb-6">
+                        <i class="fa fa-map-marker"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">面试地址</h3>
+                    <p class="text-white/80 mb-2">北京市顺义区北京国际首都机场机场东路</p>
+                    <a href="https://maps.baidu.com/search/北京市顺义区北京国际首都机场机场东路" target="_blank" class="inline-block text-secondary hover:underline mt-2">
+                        查看地图 <i class="fa fa-external-link ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm card-hover">
+                    <div class="text-secondary text-4xl mb-6">
+                        <i class="fa fa-phone"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">联系电话</h3>
+                    <p class="text-white/80 mb-2">17274828774</p>
+                    <p class="text-white/60 text-sm">工作时间: 周一至周五 9:00-17:30</p>
+                </div>
+                
+                <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm card-hover">
+                    <div class="text-secondary text-4xl mb-6">
+                        <i class="fa fa-weixin"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">微信咨询</h3>
+                    <div class="flex items-center justify-center bg-white/20 p-4 rounded-lg w-fit mx-auto mb-3">
+                        <span class="font-mono text-lg">ABQCSM8FL</span>
+                    </div>
+                    <p class="text-white/80 text-center">扫描右侧二维码添加微信</p>
+                </div>
+            </div>
+            
+            <div class="bg-white/5 p-8 rounded-lg backdrop-blur-sm max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">常见问题</h3>
+                        <div class="space-y-4">
+                            <div class="border-b border-white/10 pb-4">
+                                <h4 class="font-bold mb-2 flex items-center">
+                                    <i class="fa fa-question-circle text-secondary mr-2"></i>
+                                    招聘流程需要多长时间？
+                                </h4>
+                                <p class="text-white/80 text-sm">根据岗位不同，招聘流程通常需要2-4周时间。简历筛选和面试环节大约1-2周，体检和背景调查需要1-2周。</p>
+                            </div>
+                            
+                            <div class="border-b border-white/10 pb-4">
+                                <h4 class="font-bold mb-2 flex items-center">
+                                    <i class="fa fa-question-circle text-secondary mr-2"></i>
+                                    是否提供住宿和通勤班车？
+                                </h4>
+                                <p class="text-white/80 text-sm">我们为异地员工提供宿舍或住房补贴，并为机场区域工作的员工提供通勤班车服务。</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-bold mb-2 flex items-center">
+                                    <i class="fa fa-question-circle text-secondary mr-2"></i>
+                                    新员工是否有培训？
+                                </h4>
+                                <p class="text-white/80 text-sm">是的，所有新员工入职后都将接受系统的入职培训和岗位技能培训，确保您能够胜任工作要求。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/10 p-8 rounded-lg text-center">
+                        <div class="text-2xl font-bold mb-6">关注我们</div>
+                        <div class="flex justify-center space-x-6 mb-8">
+                            <a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-secondary transition-colors">
+                                <i class="fa fa-weibo text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-secondary transition-colors">
+                                <i class="fa fa-weixin text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-secondary transition-colors">
+                                <i class="fa fa-linkedin text-xl"></i>
+                            </a>
+                        </div>
+                        <div class="bg-white p-4 inline-block rounded-lg">
+                            <img src="https://picsum.photos/id/1/120/120" alt="微信二维码" class="w-40 h-40">
+                        </div>
+                        <p class="mt-4 text-sm text-white/80">扫描二维码关注祥鹏航空招聘公众号</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white/70 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">关于祥鹏</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-secondary transition-colors">公司简介</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">企业文化</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">发展历程</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">新闻动态</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">招聘信息</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-secondary transition-colors">社会招聘</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">校园招聘</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">飞行员招聘</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">薪酬福利</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">职业发展</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-secondary transition-colors">培训体系</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">晋升机制</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">员工活动</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">人才理念</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">帮助中心</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-secondary transition-colors">常见问题</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">联系我们</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">隐私政策</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">用户协议</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 text-center text-sm">
+                <p>© 2025 祥鹏航空招聘网站 版权所有 | 京ICP备12345678号</p>
+                <p class="mt-2">本网站仅用于招聘信息展示，不涉及实际订票业务</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-primary', 'shadow-md');
+                navbar.classList.remove('bg-transparent');
+                
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                navbar.classList.remove('bg-primary', 'shadow-md');
+                navbar.classList.add('bg-transparent');
+                
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // 移动端菜单切换
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单
+                document.getElementById('mobileMenu').classList.add('hidden');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 返回顶部
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 岗位分类选项卡
+        const positionTabs = document.querySelectorAll('.position-tab');
+        const positionContents = document.querySelectorAll('.position-content');
+        
+        positionTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                
+                // 更新选项卡样式
+                positionTabs.forEach(t => {
+                    t.classList.remove('active', 'bg-primary', 'text-white');
+                    t.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('bg-gray-200', 'text-gray-700');
+                
+                // 更新内容显示
+                positionContents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+                document.getElementById(target).classList.remove('hidden');
+            });
+        });
+        
+        // 表单提交
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 在实际应用中，这里会有表单提交逻辑
+            alert('申请已提交成功！我们将尽快审核您的信息并与您联系。');
+            this.reset();
+        });
+        
+        // 图片懒加载
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = [].slice.call(document.querySelectorAll("img"));
+            
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src || lazyImage.src;
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
